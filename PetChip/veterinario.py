@@ -29,14 +29,3 @@ def add_new_veterinario(nome, especialidade):
         if cur is not None:
             cur.close()
 
-'''
-# Example usage
-if __name__ == '__main__':
-    # View all veterinários
-    print("Viewing all veterinários:")
-    get_all_veterinarios()
-
-    # Add a veterinário
-    print("Adding a veterinário:")
-    add_veterinario("John Doe", "Geral")
-'''

@@ -20,8 +20,11 @@ def get_pets_by_cliente(cliente_id):
         cur.execute("SELECT * FROM pet WHERE cliente_id = %s", (cliente_id,))
         rows = cur.fetchall()
         print('\n')
-        for row in rows:
-            print(row)
+        if rows:
+            for row in rows:
+                print(row)
+        else:
+            print("Nenhum pet encontrado para o cliente com o ID:", cliente_id)
     finally:
         if con is not None:
             con.close()
@@ -41,20 +44,3 @@ def delete_pet(pet_id):
         if cur is not None:
             cur.close()
 
-
-'''
-# Example usage
-if __name__ == '__main__':
-
-    # Add a pet
-    print("Adding a pet:")
-    add_pet(1, "Max", "Dog")
-
-    # View all pets
-    print("Viewing all pets:")
-    get_pets_by_cliente(1)
-
-    # Delete a pet
-    print("Deleting a pet:")
-    delete_pet(1)
-'''

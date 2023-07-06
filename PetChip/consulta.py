@@ -6,13 +6,17 @@ def get_consultas_por_veterinario(veterinario_id):
         cur.execute("SELECT * FROM consulta WHERE veterinario_id = %s", (veterinario_id,))
         rows = cur.fetchall()
         print('\n')
-        for row in rows:
-            print(row)
+        if rows:
+            for row in rows:
+                print(row)
+        else:
+            print("Nenhuma consulta encontrada para o veterinário com o ID:", veterinario_id)
     finally:
         if con is not None:
             con.close()
         if cur is not None:
             cur.close()
+
 
 def delete_consulta(consulta_id):
     con, cur = get_connection()
@@ -55,19 +59,3 @@ def update_consulta(pet_id, veterinario_id, data_hora, descricao, consulta_id):
             con.close()
         if cur is not None:
             cur.close()
-
-'''
-# Example usage
-if __name__ == '__main__':
-    # View consultas por veterinario
-    print("Viewing consultas por veterinario:")
-    get_consultas_por_veterinario(1)
-
-    # Delete consulta
-    print("Deleting consulta:")
-    delete_consulta(2)
-
-    # Add consulta
-    print("Adding consulta:")
-    add_consulta(1, 1, '2023-07-10 10:00:00', 'Consulta de rotina')
-'''

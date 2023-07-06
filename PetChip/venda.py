@@ -29,19 +29,3 @@ def add_new_venda(produto, quantidade, valor):
             con.close()
         if cur is not None:
             cur.close()
-
-'''
-# Example usage
-if __name__ == '__main__':
-    # View diagnóstico por consulta
-    print("Viewing diagnóstico por consulta:")
-    get_diagnostico_por_consulta(1)
-
-    # Update diagnóstico
-    print("Updating diagnóstico:")
-    update_diagnostico(1, "Descrição atualizada", "Prescrição atualizada")
-
-    # Add diagnóstico
-    print("Adding diagnóstico:")
-    add_diagnostico(1, "Nova descrição", "Nova prescrição")
-'''

@@ -129,15 +129,19 @@ def main():
     }
 
     while True:
-        print_menu()
-        choice = input("\nDigite o número da opção desejada: ")
+        try:
+            print_menu()
+            choice = input("\nDigite o número da opção desejada: ")
+            
+            if choice in menu_options:
+                menu_options[choice]()
+                print("===========================================================")
+                print('\n')
+            else:
+                print("Opção inválida. Tente novamente.")
         
-        if choice in menu_options:
-            menu_options[choice]()
-            print("===========================================================")
-            print('\n')
-        else:
-            print("Opção inválida. Tente novamente.")
+        except Exception as e:
+            print("Ocorreu um erro:", str(e))
 
 if __name__ == '__main__':
     main()
