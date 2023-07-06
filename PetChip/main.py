@@ -98,7 +98,7 @@ def deletar_consulta():
 
 #Diagnosticos
 def ver_todas_vendas():
-    print("\nTodas as vendas: ")
+    print("\nTodas as vendas cadastradas: ")
     get_vendas()
 
 def add_venda():
